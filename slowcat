@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+import sys, os, time
+
+
+filename = sys.argv[1]
+filesize = os.stat(filename).st_size
+
+if 2 in sys.argv: sleeptime = sys.argv[2]
+else: sleeptime = 1
+
+i = 0
+file = open(filename)
+while i < filesize:
+    sys.stdout.write(file.read(1))
+    sys.stdout.flush()
+    time.sleep(sleeptime)
+    i += 1
+
+file.close()
